@@ -83,7 +83,7 @@ const About = () => {
                     "0 0 15px rgba(130,69,236,0.5)",
                 }}
               >
-                DOWNLOAD CV
+                DOWNLOAD RESUME
               </a>
 
               {/* Projects */}

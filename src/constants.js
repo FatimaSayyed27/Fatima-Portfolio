@@ -10,13 +10,9 @@ import tailwindcssLogo from './assets/tech_logo/tailwindcss.png';
 
 import bootstrapLogo from './assets/tech_logo/bootstrap.png';
 import springbootLogo from './assets/tech_logo/springboot.png';
-
 import mysqlLogo from './assets/tech_logo/mysql.png';
-
-
 import javaLogo from './assets/tech_logo/java.png';
 import pythonLogo from './assets/tech_logo/python.png';
-
 import gitLogo from './assets/tech_logo/git.png';
 import githubLogo from './assets/tech_logo/github.png';
 import vscodeLogo from './assets/tech_logo/vscode.png';
@@ -42,6 +38,7 @@ import githubFinderLogo from './assets/work_logo/githubfilter.png';
 import shopHeavenLogo from './assets/work_logo/shopheaven.png';
 import shopHeavenV2Logo from './assets/work_logo/shopheavenv2.png';
 import weatherLogo from './assets/work_logo/weatherly.png';
+import portfolio from "./assets/work_logo/portfolio.png";
 
 export const SkillsInfo = [
   {
@@ -215,7 +212,24 @@ export const experiences = [
   },
 
   {
-    id: 2,
+  id: 2,
+  title: "Fatima Portfolio",
+  description:
+    "A modern and responsive personal portfolio showcasing my skills, experience, education, and projects as a Junior Software Developer.",
+  image: portfolio,
+  tags: [
+    "React JS",
+    "Tailwind CSS",
+    "JavaScript",
+    "Responsive Design",
+    "Vercel",
+  ],
+  github: "https://github.com/FatimaSayyed27/Fatima-Portfolio",
+  webapp: "https://fatima-portfolio-gold-five.vercel.app/",
+},
+
+  {
+    id: 3,
     title: "Weather App",
     description:
       "A responsive React weather application that fetches real-time weather information using the OpenWeather API. The application is designed to provide a clean and user-friendly experience across mobile and desktop devices.",
@@ -231,7 +245,7 @@ export const experiences = [
   },
 
   {
-    id: 3,
+    id: 5,
     title: "GitHub Finder",
     description:
       "A React-based application that allows users to search for GitHub profiles and explore developer information through GitHub API integration. It provides a simple and responsive interface for discovering GitHub users.",
