@@ -4,122 +4,306 @@ import { projects } from "../../constants";
 const Work = () => {
   const [selectedProject, setSelectedProject] = useState(null);
 
-  const handleOpenModal = (project) => {
+  const openModal = (project) => {
     setSelectedProject(project);
+    document.body.style.overflow = "hidden";
   };
 
-  const handleCloseModal = () => {
+  const closeModal = () => {
     setSelectedProject(null);
+    document.body.style.overflow = "auto";
   };
 
   return (
     <section
       id="work"
-      className="py-24 pb-24 px-[12vw] md:px-[7vw] lg:px-[20vw] font-sans relative"
+      className="relative py-24 px-[7vw] md:px-[8vw] lg:px-[10vw] font-sans"
     >
-      {/* Section Title */}
+      {/* ================= SECTION HEADER ================= */}
       <div className="text-center mb-16">
-        <h2 className="text-4xl font-bold text-white">PROJECTS</h2>
-        <div className="w-32 h-1 bg-purple-500 mx-auto mt-4"></div>
-        <p className="text-gray-400 mt-4 text-lg font-semibold">
-          A showcase of the projects I have worked on, highlighting my skills
-          and experience in various technologies
+        <h2 className="text-4xl md:text-5xl font-bold text-white">
+          PROJECTS
+        </h2>
+
+        <div className="w-32 h-1 bg-purple-500 mx-auto mt-4 rounded-full"></div>
+
+        <p className="text-gray-400 mt-5 text-base md:text-lg max-w-3xl mx-auto leading-relaxed">
+          A showcase of my projects, highlighting my skills and experience
+          across frontend, backend, API integration, and full-stack development.
         </p>
       </div>
 
-      {/* Projects Grid */}
-      <div className="grid gap-12 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+      {/* ================= PROJECT GRID ================= */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10 max-w-6xl mx-auto">
         {projects.map((project) => (
           <div
             key={project.id}
-            onClick={() => handleOpenModal(project)}
-            className="border border-white bg-gray-900 backdrop-blur-md rounded-2xl shadow-2xl overflow-hidden cursor-pointer hover:shadow-purple-500/50 hover:-translate-y-2 transition-transform duration-300"
+            onClick={() => openModal(project)}
+            className="
+              group
+              bg-[#111827]
+              border border-gray-700
+              rounded-2xl
+              overflow-hidden
+              cursor-pointer
+              shadow-[0_0_20px_rgba(130,69,236,0.15)]
+              hover:border-purple-500
+              hover:shadow-[0_0_30px_rgba(130,69,236,0.35)]
+              hover:-translate-y-2
+              transition-all
+              duration-300
+            "
           >
+            {/* ================= PROJECT IMAGE ================= */}
             <div className="p-4">
-              <img
-                src={project.image}
-                alt={project.title}
-                className="w-full h-48 object-cover rounded-xl"
-              />
-            </div>
-            <div className="p-6">
-              <h3 className="text-2xl font-bold text-white mb-2">
+  <div className="relative overflow-hidden rounded-xl bg-[#0d081f]">
+    <img
+      src={project.image}
+      alt={project.title}
+      className="
+        w-full
+        h-56
+        md:h-60
+        object-contain
+        md:object-cover
+        rounded-xl
+        transition-transform
+        duration-500
+        group-hover:scale-105
+      "
+    />
+
+    {/* Image Overlay */}
+    <div
+      className="
+        absolute
+        inset-0
+        bg-purple-600/0
+        group-hover:bg-purple-600/10
+        transition-all
+        duration-300
+        pointer-events-none
+      "
+    ></div>
+  </div>
+</div>
+
+            {/* ================= PROJECT CONTENT ================= */}
+            <div className="px-6 pb-6">
+              <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-purple-400 transition">
                 {project.title}
               </h3>
-              <p className="text-gray-500 mb-4 pt-4 line-clamp-3">
+
+              <p className="text-gray-400 text-sm md:text-base leading-relaxed line-clamp-3">
                 {project.description}
               </p>
-              <div className="mb-4">
+
+              {/* ================= TECHNOLOGIES ================= */}
+              <div className="flex flex-wrap gap-2 mt-5">
                 {project.tags.map((tag, index) => (
                   <span
                     key={index}
-                    className="inline-block bg-[#251f38] text-xs font-semibold text-purple-500 rounded-full px-2 py-1 mr-2 mb-2"
+                    className="
+                      px-3
+                      py-1
+                      text-xs
+                      font-semibold
+                      rounded-full
+                      bg-[#251f38]
+                      text-purple-400
+                      border border-purple-500/20
+                    "
                   >
                     {tag}
                   </span>
                 ))}
+              </div>
+
+              {/* ================= VIEW BUTTON ================= */}
+              <div className="mt-6">
+                <button
+                  className="
+                    text-purple-400
+                    font-semibold
+                    text-sm
+                    hover:text-purple-300
+                    transition
+                  "
+                >
+                  View Project
+                  <span className="ml-2">→</span>
+                </button>
               </div>
             </div>
           </div>
         ))}
       </div>
 
-      {/* Modal Container */}
+      {/* ================= PROJECT MODAL ================= */}
       {selectedProject && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-90 p-4">
-          <div className="bg-gray-900 rounded-xl shadow-2xl lg:w-full w-[90%] max-w-3xl overflow-hidden relative">
-            <div className="flex justify-end p-4">
-              <button
-                onClick={handleCloseModal}
-                className="text-white text-3xl font-bold hover:text-purple-500"
-              >
-                &times;
-              </button>
+        <div
+          className="
+            fixed
+            inset-0
+            z-[100]
+            flex
+            items-center
+            justify-center
+            bg-black/80
+            backdrop-blur-sm
+            p-4
+          "
+          onClick={closeModal}
+        >
+          <div
+            className="
+              relative
+              w-full
+              max-w-4xl
+              max-h-[90vh]
+              overflow-y-auto
+              bg-[#111827]
+              border
+              border-gray-700
+              rounded-2xl
+              shadow-[0_0_40px_rgba(130,69,236,0.3)]
+            "
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* ================= CLOSE BUTTON ================= */}
+            <button
+              onClick={closeModal}
+              aria-label="Close modal"
+              className="
+                absolute
+                top-4
+                right-4
+                z-10
+                w-10
+                h-10
+                rounded-full
+                bg-black/60
+                text-gray-300
+                text-2xl
+                flex
+                items-center
+                justify-center
+                hover:bg-purple-600
+                hover:text-white
+                transition
+              "
+            >
+              ×
+            </button>
+
+            {/* ================= MODAL IMAGE ================= */}
+            <div className="p-4 md:p-6">
+              <img
+                src={selectedProject.image}
+                alt={selectedProject.title}
+                className="
+                  w-full
+                  max-h-[420px]
+                  object-cover
+                  rounded-xl
+                  border
+                  border-gray-700
+                "
+              />
             </div>
 
-            <div className="flex flex-col">
-              <div className="w-full flex justify-center bg-gray-900 px-4">
-                <img
-                  src={selectedProject.image}
-                  alt={selectedProject.title}
-                  className="lg:w-full w-[95%] object-contain rounded-xl shadow-2xl"
-                />
+            {/* ================= MODAL CONTENT ================= */}
+            <div className="px-6 pb-8 md:px-8 md:pb-10">
+              <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
+                {selectedProject.title}
+              </h3>
+
+              <p className="text-gray-400 leading-relaxed text-sm md:text-base">
+                {selectedProject.description}
+              </p>
+
+              {/* ================= TAGS ================= */}
+              <div className="flex flex-wrap gap-2 mt-6">
+                {selectedProject.tags.map((tag, index) => (
+                  <span
+                    key={index}
+                    className="
+                      px-3
+                      py-1.5
+                      rounded-full
+                      bg-[#251f38]
+                      text-purple-400
+                      text-xs
+                      md:text-sm
+                      font-semibold
+                      border
+                      border-purple-500/20
+                    "
+                  >
+                    {tag}
+                  </span>
+                ))}
               </div>
-              <div className="lg:p-8 p-6">
-                <h3 className="lg:text-3xl font-bold text-white mb-4 text-md">
-                  {selectedProject.title}
-                </h3>
-                <p className="text-gray-400 mb-6 lg:text-base text-xs">
-                  {selectedProject.description}
-                </p>
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {selectedProject.tags.map((tag, index) => (
-                    <span
-                      key={index}
-                      className="bg-[#251f38] text-xs font-semibold text-purple-500 rounded-full px-2 py-1"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-                <div className="flex gap-4">
+
+              {/* ================= BUTTONS ================= */}
+              <div className="flex flex-col sm:flex-row gap-4 mt-8">
+                {/* GitHub */}
+                {selectedProject.github && (
                   <a
                     href={selectedProject.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-1/2 bg-gray-800 hover:bg-purple-800 text-gray-400 lg:px-6 lg:py-2 px-2 py-1 rounded-xl lg:text-xl text-sm font-semibold text-center"
+                    onClick={(e) => e.stopPropagation()}
+                    className="
+                      flex-1
+                      text-center
+                      py-3
+                      
+                      px-6
+                      rounded-xl
+                      bg-gray-800
+                      border
+                      border-gray-700
+                      text-gray-300
+                      font-semibold
+                      hover:bg-purple-700
+                      hover:text-white
+                      hover:border-purple-500
+                      transition
+                    "
                   >
                     View Code
                   </a>
-                  <a
-                    href={selectedProject.webapp}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-1/2 bg-purple-600 hover:bg-purple-800 text-white lg:px-6 lg:py-2 px-2 py-1 rounded-xl lg:text-xl text-sm font-semibold text-center"
-                  >
-                    View Live
-                  </a>
-                </div>
+                )}
+
+                {/* Live Website */}
+                {selectedProject.webapp &&
+                  selectedProject.webapp !== "#" && (
+                    <a
+                      href={selectedProject.webapp}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={(e) => e.stopPropagation()}
+                      className="
+                        flex-1
+                        text-center
+                        py-3
+                        px-6
+                        rounded-xl
+                        bg-gradient-to-r
+                        from-purple-600
+                        to-pink-500
+                        text-white
+                        font-semibold
+                        hover:opacity-90
+                        hover:shadow-lg
+                        hover:shadow-purple-500/30
+                        transition
+                      "
+                    >
+                      View Live
+                    </a>
+                  )}
               </div>
             </div>
           </div>

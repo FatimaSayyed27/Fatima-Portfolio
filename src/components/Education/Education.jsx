@@ -1,80 +1,155 @@
 import React from "react";
-import { education } from "../../constants"; // Import the education data
+import { education } from "../../constants";
 
 const Education = () => {
   return (
     <section
       id="education"
-      className="py-24 pb-24 px-[12vw] md:px-[7vw] lg:px-[16vw] font-sans bg-skills-gradient clip-path-custom-3"
+      className="py-24 px-[7vw] md:px-[7vw] lg:px-[12vw] font-sans bg-skills-gradient"
     >
-      {/* Section Title */}
+      {/* Section Heading */}
       <div className="text-center mb-16">
-        <h2 className="text-4xl font-bold text-white">EDUCATION</h2>
-        <div className="w-32 h-1 bg-purple-500 mx-auto mt-4"></div>
-        <p className="text-gray-400 mt-4 text-lg font-semibold">
-          My education has been a journey of learning and development. Here are the details of my academic background
+        <h2 className="text-4xl sm:text-5xl font-bold text-white">
+          EDUCATION
+        </h2>
+
+        <div className="w-28 h-1 bg-[#8245ec] mx-auto mt-4 rounded-full"></div>
+
+        <p className="text-gray-400 mt-5 text-base sm:text-lg font-semibold max-w-3xl mx-auto leading-relaxed">
+          My academic journey and educational background.
         </p>
       </div>
 
       {/* Education Timeline */}
-      <div className="relative">
-        {/* Vertical line */}
-        <div className="absolute sm:left-1/2 left-0 transform -translate-x-1/2 sm:-translate-x-0 w-1 bg-white h-full"></div>
+      <div className="relative max-w-5xl mx-auto">
+        {/* Timeline Line */}
+        <div
+          className="
+            absolute
+            left-5
+            md:left-1/2
+            top-0
+            bottom-0
+            w-[2px]
+            bg-gradient-to-b
+            from-[#8245ec]
+            via-purple-500
+            to-transparent
+            md:-translate-x-1/2
+          "
+        ></div>
 
-        {/* Education Entries */}
-        {education.map((edu, index) => (
-          <div
-            key={edu.id}
-            className={`flex flex-col sm:flex-row items-center mb-16 ${
-              index % 2 === 0 ? "sm:justify-start" : "sm:justify-end"
-            }`}
-          >
-            {/* Timeline Circle */}
-            <div className="absolute sm:left-1/2 left-0 transform -translate-x-1/2 bg-gray-400 border-4 border-[#8245ec] w-12 h-12 sm:w-16 sm:h-16 rounded-full flex justify-center items-center z-10">
-              <img
-                src={edu.img}
-                alt={edu.school}
-                className="w-full h-full object-cover rounded-full"
-              />
-            </div>
-
-            {/* Content Section */}
+        {/* Education Items */}
+        <div className="space-y-16">
+          {education.map((edu, index) => (
             <div
-              className={`w-full sm:max-w-md p-4 sm:p-8 rounded-2xl shadow-2xl border border-white bg-gray-900 backdrop-blur-md shadow-[0_0_20px_1px_rgba(130,69,236,0.3)] ${
-                index % 2 === 0 ? "sm:ml-0" : "sm:mr-0"
-              } sm:ml-44 sm:mr-44 ml-8 transform transition-transform duration-300 hover:scale-105`}
+              key={edu.id}
+              className={`
+                relative
+                flex
+                items-start
+                ${
+                  index % 2 === 0
+                    ? "md:justify-start"
+                    : "md:justify-end"
+                }
+              `}
             >
-              {/* Flex container for image and text */}
-              <div className="flex items-center space-x-6">
-                {/* School Logo/Image */}
-                <div className="w-24 h-16 bg-white rounded-md overflow-hidden">
-                  <img
-                    src={edu.img}
-                    alt={edu.school}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-
-                {/* Degree, School Name, and Date */}
-                <div className="flex flex-col justify-between">
-                  <div>
-                    <h3 className="text-xl sm:text-xl font-semibold text-white">
-                      {edu.degree}
-                    </h3>
-                    <h4 className="text-md sm:text-sm text-gray-300">
-                      {edu.school}
-                    </h4>
-                  </div>
-                  {/* Date at the bottom */}
-                  <p className="text-sm text-gray-500 mt-2">{edu.date}</p>
-                </div>
+              {/* Timeline Logo */}
+              <div
+                className="
+                  absolute
+                  left-5
+                  md:left-1/2
+                  -translate-x-1/2
+                  w-14
+                  h-14
+                  md:w-16
+                  md:h-16
+                  rounded-full
+                  bg-white
+                  border-4
+                  border-[#8245ec]
+                  shadow-[0_0_20px_rgba(130,69,236,0.6)]
+                  flex
+                  items-center
+                  justify-center
+                  z-20
+                  overflow-hidden
+                "
+              >
+                <img
+                  src={edu.img}
+                  alt={`${edu.school} logo`}
+                  className="w-full h-full object-contain p-1"
+                />
               </div>
 
-              <p className="mt-4 text-gray-400 font-bold">Grade: {edu.grade}</p>
-              <p className="mt-4 text-gray-400">{edu.desc}</p>
+              {/* Education Card */}
+              <div
+                className={`
+                  ml-16
+                  md:ml-0
+                  w-[calc(100%-4rem)]
+                  md:w-[45%]
+                  bg-[#111827]
+                  border
+                  border-gray-700
+                  rounded-2xl
+                  p-6
+                  sm:p-7
+                  shadow-[0_0_25px_rgba(130,69,236,0.15)]
+                  hover:border-[#8245ec]
+                  hover:shadow-[0_0_30px_rgba(130,69,236,0.3)]
+                  hover:-translate-y-1
+                  transition-all
+                  duration-300
+                `}
+              >
+                {/* Degree */}
+                <h3 className="text-xl sm:text-2xl font-bold text-white leading-snug">
+                  {edu.degree}
+                </h3>
+
+                {/* Institution */}
+                <h4 className="text-base sm:text-lg font-medium text-[#a78bfa] mt-2 leading-relaxed">
+                  {edu.school}
+                </h4>
+
+                {/* Date */}
+                <p className="text-sm text-gray-500 mt-2">
+                  {edu.date}
+                </p>
+
+                {/* Divider */}
+                <div className="w-full h-[1px] bg-gray-700 my-5"></div>
+
+                {/* Grade */}
+                <div className="flex items-center gap-2 mb-4">
+                  <span className="text-base font-semibold text-white">
+                    Grade:
+                  </span>
+
+                  <span className="text-base font-bold text-[#a855f7]">
+                    {edu.grade}
+                  </span>
+                </div>
+
+                {/* Description */}
+                <p
+                  className="
+                    text-gray-400
+                    text-sm
+                    sm:text-base
+                    leading-7
+                  "
+                >
+                  {edu.desc}
+                </p>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );

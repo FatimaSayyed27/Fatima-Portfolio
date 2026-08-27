@@ -14,6 +14,7 @@ const Navbar = () => {
     };
 
     window.addEventListener("scroll", handleScroll);
+
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -23,8 +24,11 @@ const Navbar = () => {
     setIsOpen(false);
 
     const section = document.getElementById(sectionId);
+
     if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
+      section.scrollIntoView({
+        behavior: "smooth",
+      });
     }
   };
 
@@ -39,17 +43,21 @@ const Navbar = () => {
   return (
     <nav
       className={`fixed top-0 w-full z-50 transition duration-300 px-[7vw] md:px-[7vw] lg:px-[20vw] ${
-        isScrolled ? "bg-[#050414] bg-opacity-50 backdrop-blur-md shadow-md" : "bg-transparent"
+        isScrolled
+          ? "bg-[#050414] bg-opacity-50 backdrop-blur-md shadow-md"
+          : "bg-transparent"
       }`}
     >
       <div className="text-white py-5 flex justify-between items-center">
         {/* Logo */}
-        <div className="text-lg font-semibold cursor-pointer">
-          <span className="text-[#8245ec]">&lt;</span>
-          <span className="text-white">Tarun</span>
-          <span className="text-[#8245ec]">/</span>
-          <span className="text-white">Kaushik</span>
-          <span className="text-[#8245ec]">&gt;</span>
+        <div
+          onClick={() => handleMenuItemClick("about")}
+          className="text-lg font-semibold cursor-pointer"
+        >
+         
+         <span className="text-white">Fatima </span>
+          <span className="text-white">Sayyed</span>
+          
         </div>
 
         {/* Desktop Menu */}
@@ -57,7 +65,7 @@ const Navbar = () => {
           {menuItems.map((item) => (
             <li
               key={item.id}
-              className={`cursor-pointer hover:text-[#8245ec] ${
+              className={`cursor-pointer hover:text-[#8245ec] transition ${
                 activeSection === item.id ? "text-[#8245ec]" : ""
               }`}
             >
@@ -70,19 +78,24 @@ const Navbar = () => {
 
         {/* Social Icons */}
         <div className="hidden md:flex space-x-4">
+          {/* GitHub */}
           <a
-            href="https://github.com/codingmastr"
+            href="https://github.com/FatimaSayyed27"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-300 hover:text-[#8245ec]"
+            className="text-gray-300 hover:text-[#8245ec] transition"
+            aria-label="GitHub"
           >
             <FaGithub size={24} />
           </a>
+
+          {/* LinkedIn */}
           <a
-            href="https://www.linkedin.com/in/tarun-kaushik-553b441a4"
+            href="https://www.linkedin.com/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-300 hover:text-[#8245ec]"
+            className="text-gray-300 hover:text-[#8245ec] transition"
+            aria-label="LinkedIn"
           >
             <FaLinkedin size={24} />
           </a>
@@ -104,14 +117,14 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Menu Items */}
+      {/* Mobile Menu */}
       {isOpen && (
         <div className="absolute top-16 left-1/2 transform -translate-x-1/2 w-4/5 bg-[#050414] bg-opacity-50 backdrop-filter backdrop-blur-lg z-50 rounded-lg shadow-lg md:hidden">
           <ul className="flex flex-col items-center space-y-4 py-4 text-gray-300">
             {menuItems.map((item) => (
               <li
                 key={item.id}
-                className={`cursor-pointer hover:text-white ${
+                className={`cursor-pointer hover:text-white transition ${
                   activeSection === item.id ? "text-[#8245ec]" : ""
                 }`}
               >
@@ -120,20 +133,25 @@ const Navbar = () => {
                 </button>
               </li>
             ))}
-            <div className="flex space-x-4">
+
+            {/* Mobile Social Icons */}
+            <div className="flex space-x-4 pt-2">
               <a
-                href="https://github.com/codingmastr"
+                href="https://github.com/FatimaSayyed27"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-300 hover:text-white"
+                className="text-gray-300 hover:text-[#8245ec] transition"
+                aria-label="GitHub"
               >
                 <FaGithub size={24} />
               </a>
+
               <a
-                href="https://www.linkedin.com/in/tarun-kaushik-553b441a4"
+                href="https://www.linkedin.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-300 hover:text-white"
+                className="text-gray-300 hover:text-[#8245ec] transition"
+                aria-label="LinkedIn"
               >
                 <FaLinkedin size={24} />
               </a>
