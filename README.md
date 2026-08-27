@@ -1,28 +1,29 @@
-# Fatima Sayyed — Developer Portfolio
+# Fatima Sayyed | Junior Software Developer
 
-A modern, responsive personal portfolio built with **React.js** and **Tailwind CSS**.
+A modern and responsive developer portfolio built with **React.js** and **Tailwind CSS**, showcasing my projects, skills, and experience.
+
+### 🌐 Live Portfolio
+**[View Portfolio →](https://fatima-portfolio-gold-five.vercel.app/)**
 
 ### 🚀 Tech Stack
-React.js • JavaScript • Tailwind CSS • HTML • CSS
+React.js • JavaScript • Tailwind CSS • HTML • CSS • Git • GitHub
+
+### 📂 Featured Projects
+- **SHOP_HEAVEN V2** — React.js • Django • PostgreSQL
+- **FloraCure** — Python • Django • SQLite
+- **Weatherly** — React.js • API Integration
 
 ### ✨ Features
-- Responsive Design
+- Responsive & Modern UI
 - Projects Showcase
 - Skills & Experience
-- Education
-- Resume
-- Contact Form with EmailJS
-
-### 📂 Projects
-- SHOP_HEAVEN V2
-- FloraCure
-- Weatherly
+- Education & Resume
+- Contact Form
 
 ### 🔗 Connect
-**GitHub:** https://github.com/FatimaSayyed27
-
-**LinkedIn:** Add your LinkedIn profile link
+**GitHub:** [FatimaSayyed27](https://github.com/FatimaSayyed27)  
+**LinkedIn:** https://www.linkedin.com/in/fatimasayyed27/
 
 ---
 
-⭐ If you like this portfolio, feel free to star the repository.
+⭐ Built with **React.js & Tailwind CSS** by **Fatima Sayyed**
