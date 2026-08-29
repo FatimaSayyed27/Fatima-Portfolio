@@ -72,7 +72,8 @@ const About = () => {
 
               {/* Resume */}
               <a
-                href="#"
+                  href="/FATIMA_SAYYED_Resume.pdf"
+  download="Fatima_Sayyed_Resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center px-7 py-3 rounded-full text-white font-semibold transition-all duration-300 hover:scale-105"
